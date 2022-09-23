@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "GO run",
+      "type": "f5anything",
+      "request": "launch",
+      "command": "go run .",
+      "terminalName": "GO run",
+      "showTerminal": true,
+    },
+    {
+      "name": "GO build",
+      "type": "f5anything",
+      "request": "launch",
+      "command": "go build .",
+      "terminalName": "GO build",
+      "showTerminal": true,
+    },
+  ]
+}
