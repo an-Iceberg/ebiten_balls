@@ -16,6 +16,7 @@ type Game struct{}
 
 // Global variables
 var (
+	black        color.Color = color.RGBA{R: 0, G: 0, B: 0, A: 255}
 	Balls        []balls.Ball
 	ScreenWidth  = 800
 	ScreenHeight = 600
@@ -36,7 +37,7 @@ func (game *Game) Update() error {
 }
 
 func (game *Game) Draw(screen *ebiten.Image) {
-	screen.Fill(color.RGBA{R: 0, G: 0, B: 0, A: 255})
+	screen.Fill(black)
 
 	// mouseX, mouseY := ebiten.CursorPosition()
 

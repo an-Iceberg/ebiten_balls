@@ -17,9 +17,9 @@ type Ball struct {
 
 func AddBalls(balls []Ball, screenWidth, screenHeight int) []Ball {
 	for i := 0; i < 10; i++ {
-		radius := 10. + rand.Float64()*(40-10)
-		speed := rand.Intn(300) + 100
-		angle := rand.Intn(628)
+		radius := utils.RandomFloat(10., 40.)
+		speed := utils.RandomFloat(100., 300.)
+		angle := utils.RandomFloat(0., 6.28)
 
 		newBall := Ball{
 			Position: vec2d.Vec2D{
@@ -27,12 +27,10 @@ func AddBalls(balls []Ball, screenWidth, screenHeight int) []Ball {
 				X: utils.RandomFloat(radius, float64(screenWidth)-radius),
 				Y: utils.RandomFloat(radius, float64(screenHeight)-radius),
 			},
-			// TODO: random velocity
 			Velocity: vec2d.Vec2D{
-				X: float64(speed) * math.Cos(float64(angle)/100),
-				Y: float64(speed) * math.Sin(float64(angle)/100),
+				X: speed * math.Cos(angle),
+				Y: speed * math.Sin(angle),
 			},
-			// Random radius size between 10 and 40
 			Radius: radius,
 			Color: color.RGBA{
 				R: uint8(rand.Intn(255)),

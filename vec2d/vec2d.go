@@ -103,7 +103,7 @@ func (vector *Vec2D) Cross(vec Vec2D) Vec2D {
 	return Vec2D{X: vector.X * vec.Y, Y: vector.Y * vec.X}
 }
 
-func (vector *Vec2D) print() {
+func (vector *Vec2D) Print() {
 	fmt.Printf("(X: %.2f, Y: %.2f)\n", vector.X, vector.Y)
 }
 
