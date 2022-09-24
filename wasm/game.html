@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GO balls</title>
+  <style>
+    * {
+      overflow: hidden !important;
+    }
+  </style>
+</head>
+<body style="background-color: white;">
+  <script src="wasm_exec.js"></script>
+  <script>
+    if (!WebAssembly.instantiateStreaming) {
+      WebAssembly.instantiateStreaming = async (response, importObject) => {
+        const source = await (await response).arrayBuffer()
+        return await WebAssembly.instantiate(source, importObject)
+      }
+    }
+
+    const go = new Go()
+    WebAssembly.instantiateStreaming(fetch("balls.wasm"), go.importObject).then(result => {
+      go.run(result.instance)
+    })
+  </script>
+</body>
+</html>

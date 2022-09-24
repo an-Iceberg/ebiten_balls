@@ -17,5 +17,13 @@
       "terminalName": "GO build",
       "showTerminal": true,
     },
+    {
+      "name": "GO build WASM",
+      "type": "f5anything",
+      "request": "launch",
+      "command": "$Env:GOOS = 'js';$Env:GOARCH = 'wasm';go build -o wasm/balls.wasm .;Remove-Item Env:GOOS; Remove-Item Env:GOARCH;",
+      "terminalName": "F5 Anything",
+      "showTerminal": true,
+    },
   ]
 }
