@@ -1,2 +1,2 @@
-# Ignores all JavaScript files
-*.js linguist-language=
+# Ignores the wasm folder
+wasm linguist-language
